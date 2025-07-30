@@ -17,6 +17,28 @@
   <!-- Font Awesome for icons -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
   <style>
+    .footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  list-style: none;
+  margin-bottom: 0.7rem;
+  font-size: 0.95rem;
+  padding: 0;
+}
+.footer-links li {
+  color: rgba(255,255,255,0.6);
+}
+.footer-links a {
+  color: #ffd700;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -366,6 +388,14 @@
     }
     .icons a:hover img {
       filter: brightness(0.2) invert(1); /* Makes icons pop on gold bg */
+    <ul class="footer-links">
+  <li><a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a></li>
+  <li>|</li>
+  <li><a href="/terms.html" target="_blank" rel="noopener">Terms of Service</a></li>
+  <li>|</li>
+  <li><a href="/refund.html" target="_blank" rel="noopener">Refund Policy</a></li>
+</ul>
+
     }
     .copyright { display: flex; justify-content: center; gap: 1.2rem; color: rgba(255,255,255,0.6); font-size: 0.76rem; list-style: none;}
     .copyright a { color: #ffd700; text-decoration: none;}
