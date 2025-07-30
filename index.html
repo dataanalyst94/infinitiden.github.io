@@ -2,24 +2,20 @@
 <html>
 <head>
   <title>Infinitiden — Personalized Letters That Actually Work</title>
-
   <!-- SEO / OG -->
   <meta name="description" content="Infinitiden helps you write high-impact letters for jobs, scholarships and visas — based on real success stories, not generic AI.">
-  <meta property="og:title" content="Infinitiden — Personalized Letters That Actually Work"> 
+  <meta property="og:title" content="Infinitiden — Personalized Letters That Actually Work">
   <meta property="og:description" content="Write winning motivation, cover and visa SOP letters in seconds. Based on real success stories.">
   <meta property="og:image" content="assets/images/logo.png">
   <meta property="og:url" content="https://yourdomain.com">
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-
   <!-- Font Awesome for icons -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
-
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -59,26 +55,24 @@
       width: 40px; height: 40px; bottom: 20%; left: 10%; border-radius: 50%;
     }
     @keyframes rotate { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
-    
-@keyframes logoGlow {
-  from { filter: drop-shadow(0 0 2px #ffd700) drop-shadow(0 0 16px #ffd700); }
-  to   { filter: drop-shadow(0 0 22px #ffed4e) drop-shadow(0 0 32px #ffd700); }
-}
+    @keyframes logoGlow {
+      from { filter: drop-shadow(0 0 2px #ffd700) drop-shadow(0 0 16px #ffd700); }
+      to   { filter: drop-shadow(0 0 22px #ffed4e) drop-shadow(0 0 32px #ffd700); }
+    }
     /* TOP LEFT INFINITI LOGO */
     .brand-script {
-  font-family: 'Great Vibes', cursive !important;
-  font-size: 2rem;
-  font-weight: normal;
-  letter-spacing: 0.03em;
-  color: #ffd700;
-  background: none;
-  padding: 0.3rem 1rem 0.3rem 0;
-  text-shadow: 0 2px 10px rgba(255,215,0,0.12);
-  display: inline-block;
-  vertical-align: middle;
-  text-decoration: none;
-}
-
+      font-family: 'Great Vibes', cursive !important;
+      font-size: 2rem;
+      font-weight: normal;
+      letter-spacing: 0.03em;
+      color: #ffd700;
+      background: none;
+      padding: 0.3rem 1rem 0.3rem 0;
+      text-shadow: 0 2px 10px rgba(255,215,0,0.12);
+      display: inline-block;
+      vertical-align: middle;
+      text-decoration: none;
+    }
     /* HEADER */
     #header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
@@ -111,7 +105,6 @@
       transition: all 0.3s ease; border-left: 2px solid transparent; font-size: 0.95rem;
     }
     #menu a:hover { background: rgba(255,215,0,0.09); border-left-color: #ffd700; color: #ffd700;}
-
     /* HERO */
     #banner {
       position: relative; min-height: 78vh;
@@ -119,20 +112,19 @@
       text-align: center; overflow: hidden; z-index: 10;
     }
     .inner { position: relative; z-index: 20; max-width: 1000px; margin: 0 auto; padding: 2rem 1rem 0 1rem;}
-.hero-logo {
-  display: inline-block;
-  margin: 2.5rem auto 1.1rem auto;
-  /* Remove the animation here */
-}
-.hero-logo img {
-  max-width: 99px;
-  width: 100%;
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 0 12px rgba(255,215,0,0.18));
-  animation: logoGlow 2s ease-in-out infinite alternate;
-}
-
+    .hero-logo {
+      display: inline-block;
+      margin: 2.5rem auto 1.1rem auto;
+      /* Remove the animation here */
+    }
+    .hero-logo img {
+      max-width: 99px;
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 0 12px rgba(255,215,0,0.18));
+      animation: logoGlow 2s ease-in-out infinite alternate;
+    }
     #banner h1 {
       font-size: clamp(1.14rem, 2.7vw, 1.6rem); font-weight: 900; margin-bottom: 0.7rem;
       background: linear-gradient(135deg, #fff 0%, #ffd700 50%, #ffed4e 100%);
@@ -174,7 +166,6 @@
     .scroll-down:hover { color: #ffd700;}
     .scroll-down svg { width: 14px; height: 14px; margin-top: 0.3rem; stroke: currentColor; fill: none; stroke-width: 2;}
     @keyframes bounce { 0%,20%,50%,80%,100%{ transform: translateY(0);} 40%{ transform: translateY(-7px);} 60%{ transform: translateY(-3px);} }
-
     /* HOW IT WORKS (New Style) */
     #one {
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
@@ -246,17 +237,33 @@
     .step-desc { font-size: 0.87rem; color: rgba(255,255,255,0.84);}
     .step-card:last-child { margin-bottom: 0; }
     /*Social media icons*/
-.icons img {
-  border-radius: 50%;
-  background: rgba(255,215,0,0.08);
-  transition: background 0.3s, transform 0.3s;
-  padding: 4px;
-}
-.icons a:hover img {
-  background: #ffd700;
-  transform: translateY(-3px) scale(1.07);
-}
-
+    .icons { display: flex; justify-content: center; gap: 1.1rem; margin-bottom: 1.1rem; list-style: none;}
+    .icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(22, 21, 32, 0.82); /* Dark, almost black */
+      box-shadow: 0 0 0 1.5px #ffd70022;
+      margin: 0 5px;
+      transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    }
+    .icons a:hover {
+      background: #ffd700;
+      box-shadow: 0 4px 22px #ffd70077;
+      transform: translateY(-3px) scale(1.08);
+    }
+    .icons a:hover img,
+    .icons a:hover svg {
+      filter: brightness(0.2) invert(1); /* Makes icons pop on gold bg */
+    }
+    .icons img, .icons svg {
+      width: 32px;
+      height: 32px;
+      display: block;
+    }
     /* ARROW STYLE */
     .arrow {
       display: flex;
@@ -279,7 +286,6 @@
       80% { transform: translateY(0);}
       100% { transform: translateY(0);}
     }
-
     /* Responsive tweaks */
     @media (max-width: 1024px) {
       .steps-flex { flex-direction: column; gap: 1rem; }
@@ -301,7 +307,6 @@
     @media (max-width: 1024px) {
       .steps-flex::before { display: none; }
     }
-
     /* Features/Testimonials/CTA/Footer: compacted */
     #two { padding: 3.2rem 0; background: linear-gradient(135deg, #16213e 0%, #0f0f23 100%);}
     .spotlight { display: flex; align-items: center; max-width: 950px; margin: 0 auto 2.2rem auto; padding: 0 1rem; gap: 2.3rem;}
@@ -326,31 +331,8 @@
     .actions.stacked { display: flex; gap: 0.6rem; justify-content: center; list-style: none;}
     .button.fit { padding: 0.7rem 1.3rem; border-radius: 24px; text-decoration: none; font-weight: 600; transition: all 0.3s;}
     #footer { background: #0f0f23; padding: 1.7rem 0; text-align: center; border-top: 1px solid rgba(255,215,0,0.12);}
-    .icons { display: flex; justify-content: center; gap: 1.1rem; margin-bottom: 1.1rem; list-style: none;}
-  .icons a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: rgba(22, 21, 32, 0.82); /* Dark, almost black */
-  box-shadow: 0 0 0 1.5px #ffd70022;
-  margin: 0 5px;
-  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
-}
-.icons a:hover {
-  background: #ffd700;
-  box-shadow: 0 4px 22px #ffd70077;
-  transform: translateY(-3px) scale(1.08);
-}
-.icons a:hover img {
-  filter: brightness(0.2) invert(1); /* Makes icons pop on gold bg */
-}
-
     .copyright { display: flex; justify-content: center; gap: 1.2rem; color: rgba(255,255,255,0.6); font-size: 0.76rem; list-style: none;}
     .copyright a { color: #ffd700; text-decoration: none;}
-
     @media(max-width:768px){
       #banner h1 { font-size: 1.09rem;}
       .hero-logo img { max-width: 48px;}
@@ -362,7 +344,6 @@
     }
   </style>
 </head>
-
 <body class="landing">
   <!-- Animated background elements -->
   <div class="bg-elements">
@@ -370,11 +351,10 @@
     <div class="floating-particle"></div><div class="floating-particle"></div><div class="floating-particle"></div>
     <div class="geometric-shape"></div><div class="geometric-shape"></div>
   </div>
-
   <div id="page-wrapper">
     <!-- HEADER -->
     <header id="header" class="alt">
-      <h1><a href="index.html"class="brand-script">Infinitiden</a></h1>
+      <h1><a href="index.html" class="brand-script">Infinitiden</a></h1>
       <nav id="nav">
         <ul>
           <li class="special">
@@ -392,7 +372,6 @@
         </ul>
       </nav>
     </header>
-
     <!-- HERO -->
     <section id="banner">
       <div class="inner">
@@ -413,7 +392,6 @@
         <a href="#one" class="scroll-down">Learn More<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
       </div>
     </section>
-
     <!-- HOW IT WORKS (NEW SECTION) -->
     <section id="one">
       <div class="how-steps-wrapper">
@@ -454,7 +432,6 @@
         </div>
       </div>
     </section>
-
     <!-- FEATURES -->
     <section id="two" class="wrapper alt style2">
       <section class="spotlight"><div class="image"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=center" alt="Success patterns"></div><div class="content"><h2>Trained on Success. <br>Not on AI Guesswork</h2><p>Every letter is based on real submissions that secured scholarships, visas, and jobs — not artificial filler or chatbots.
@@ -462,7 +439,6 @@ Our system reverse-engineers success, then writes your letter to match it.</p></
       <section class="spotlight"><div class="image"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&crop=center" alt="Fast delivery"></div><div class="content"><h2>Lightning-Fast<br>Delivery</h2><p>Fill out a quick form and get a polished letter in your inbox in under two minutes. No waiting, no revisions needed — just results.</p></div></section>
       <section class="spotlight"><div class="image"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=center" alt="Multiple applications"></div><div class="content"><h2>For Jobs, Visas,<br>Scholarships &amp; More</h2><p>Cover letters, motivation letters, visa SOPs, personal statements — Infinitiden has you covered with specialized templates for every opportunity.</p></div></section>
     </section>
-
     <!-- TESTIMONIALS -->
     <section id="three" class="wrapper style3 special">
       <div class="inner">
@@ -473,36 +449,39 @@ Our system reverse-engineers success, then writes your letter to match it.</p></
         </ul>
       </div>
     </section>
-
     <!-- CTA -->
     <section id="cta" class="wrapper style4"><div class="inner"><header><h2>Your Opportunity Deserves the Perfect Letter</h2><p>Infinitiden helps you craft high-quality, personalized letters based on what really worked — not templates.</p></header><ul class="actions stacked"><li><a href="https://tally.so/r/mVO5VN" class="button fit primary">Generate My Letter Now →</a></li></ul></div></section>
-
     <!-- FOOTER -->
-    <footer id="footer"><ul class="icons">
-  <li>
-    <a href="https://tiktok.com/@infiniti.den" target="_blank">
-      <img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753647105/R_gdzn0q.png" alt="TikTok" style="width:32px;height:32px;">
-    </a>
-  </li>
-  <li>
-    <a href="https://www.instagram.com/infinitiden.eu/" target="_blank">
-      <img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753647044/new-instagram-logo-png-1_dm3cbd.png" alt="Instagram" style="width:32px;height:32px;">
-    </a>
-  </li>
-  <li>
-    <a href="https://www.linkedin.com/company/infinitiden" target="_blank">
-      <img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753647152/linked_jw0ezu.png" alt="LinkedIn" style="width:32px;height:32px;">
-    </a>
-  </li>
-  <li>
-    <a href="mailto:info@infinitiden.com">
-      <img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753899979/computer-icons-clip-art-transparency-email-vector-graphics-png-favpng-g4PyNXE41sB6E5krtU34391cA-removebg-preview_jkxrvp.png" alt="Email" style="width:32px;height:32px;">
-    </a>
-  </li>
-</ul>
-      <ul class="copyright"><li>&copy; Infinitiden</li><li><a href="#"></a></li></ul></footer>
+    <footer id="footer">
+      <ul class="icons">
+        <li>
+          <a href="https://tiktok.com/@infiniti.den" target="_blank">
+            <img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753647105/R_gdzn0q.png" alt="TikTok" style="width:32px;height:32px;">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/infinitiden.eu/" target="_blank">
+            <img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753647044/new-instagram-logo-png-1_dm3cbd.png" alt="Instagram" style="width:32px;height:32px;">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/company/infinitiden" target="_blank">
+            <img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753647152/linked_jw0ezu.png" alt="LinkedIn" style="width:32px;height:32px;">
+          </a>
+        </li>
+        <li>
+          <a href="mailto:info@infinitiden.com" aria-label="Email">
+            <!-- Beautiful, clean, white mail icon SVG -->
+            <svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="8" width="32" height="24" rx="6" stroke="#fff" fill="none"/>
+              <polyline points="4,11 20,25 36,11" stroke="#fff" fill="none"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <ul class="copyright"><li>&copy; Infinitiden</li><li><a href="#"></a></li></ul>
+    </footer>
   </div><!-- /page-wrapper -->
-
   <!-- SCRIPTS -->
   <script>
     // Counter animation
@@ -512,7 +491,6 @@ Our system reverse-engineers success, then writes your letter to match it.</p></
     function setupMobileMenu(){ const menuToggle=document.querySelector('.menuToggle'); const menu=document.getElementById('menu'); if(menuToggle&&menu){ menuToggle.addEventListener('click',function(e){ e.preventDefault(); menu.style.display=menu.style.display==='block'?'none':'block'; }); document.addEventListener('click',function(e){ if(!menuToggle.contains(e.target)&&!menu.contains(e.target)){ menu.style.display='none'; }}); menu.querySelectorAll('a').forEach(link=>{ link.addEventListener('click',()=>{ menu.style.display='none'; }); }); } }
     function enhanceParticles(){ document.querySelectorAll('.floating-particle').forEach((particle,index)=>{ setInterval(()=>{ const randomX=Math.random()*10-5; const randomY=Math.random()*10-5; particle.style.transform=`translate(${randomX}px, ${randomY}px)`; },2600+index*430); }); }
     function setupTestimonialEffects(){ document.querySelectorAll('.features li').forEach(card=>{ card.addEventListener('mouseenter',function(){ this.style.transform='translateY(-5px) scale(1.01)'; }); card.addEventListener('mouseleave',function(){ this.style.transform='translateY(0) scale(1)'; }); }); }
-
     document.addEventListener('DOMContentLoaded',function(){ setTimeout(animateCounters,900); smoothScroll(); setupMobileMenu(); enhanceParticles(); setupTestimonialEffects(); handleHeaderScroll(); });
     window.addEventListener('scroll',()=>{ handleHeaderScroll(); });
     window.addEventListener('resize',()=>{});
