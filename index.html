@@ -59,6 +59,43 @@
       from { filter: drop-shadow(0 0 2px #ffd700) drop-shadow(0 0 16px #ffd700); }
       to   { filter: drop-shadow(0 0 22px #ffed4e) drop-shadow(0 0 32px #ffd700); }
     }
+
+    .trust-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.1rem;
+  margin: 2.1rem 0 0.6rem 0;
+  flex-wrap: wrap;
+}
+
+.trust-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255,215,0,0.07);
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  min-width: 145px;
+  box-shadow: 0 1px 7px rgba(255,215,0,0.08);
+}
+
+.trust-icon {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 0.3rem;
+  filter: drop-shadow(0 0 5px #ffd70044);
+  opacity: 0.95;
+}
+
+.trust-col span {
+  color: #fff;
+  font-size: 0.93rem;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
     /* TOP LEFT INFINITI LOGO */
     .brand-script {
       font-family: 'Great Vibes', cursive !important;
@@ -389,6 +426,22 @@
           <div class="metric"><span class="metric-number" data-target="47+">0</span><div class="metric-label">Countries Served</div></div>
         </div>
         <ul class="actions special"><li><a href="https://tally.so/r/mVO5VN" class="button primary">Get My Winning Letter</a></li></ul>
+        <!-- TRUST BADGES: Under Main CTA -->
+<div class="trust-row">
+  <div class="trust-col">
+    <img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753903405/documents-svgrepo-com_ktlfso.svg" alt="Letters Delivered" class="trust-icon" />
+    <span>15,000+ Letters Delivered</span>
+  </div>
+  <div class="trust-col">
+    <img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753903696/global-edit-svgrepo-com_d16h3x.svg" alt="Countries" class="trust-icon" />
+    <span>47 Countries Served</span>
+  </div>
+  <div class="trust-col">
+    <img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753903818/verified-svgrepo-com_ggdozo.svg" alt="Real Success" class="trust-icon" />
+    <span>Real Success Letters</span>
+  </div>
+</div>
+
         <a href="#one" class="scroll-down">Learn More<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
       </div>
     </section>
