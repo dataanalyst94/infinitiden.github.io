@@ -327,8 +327,27 @@
     .button.fit { padding: 0.7rem 1.3rem; border-radius: 24px; text-decoration: none; font-weight: 600; transition: all 0.3s;}
     #footer { background: #0f0f23; padding: 1.7rem 0; text-align: center; border-top: 1px solid rgba(255,215,0,0.12);}
     .icons { display: flex; justify-content: center; gap: 1.1rem; margin-bottom: 1.1rem; list-style: none;}
-    .icons a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,215,0,0.08); color: #ffd700; text-decoration: none; transition: all 0.3s;}
-    .icons a:hover { background: #ffd700; color: #1a1a2e; transform: translateY(-3px);}
+  .icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(22, 21, 32, 0.82); /* Dark, almost black */
+  box-shadow: 0 0 0 1.5px #ffd70022;
+  margin: 0 5px;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+.icons a:hover {
+  background: #ffd700;
+  box-shadow: 0 4px 22px #ffd70077;
+  transform: translateY(-3px) scale(1.08);
+}
+.icons a:hover img {
+  filter: brightness(0.2) invert(1); /* Makes icons pop on gold bg */
+}
+
     .copyright { display: flex; justify-content: center; gap: 1.2rem; color: rgba(255,255,255,0.6); font-size: 0.76rem; list-style: none;}
     .copyright a { color: #ffd700; text-decoration: none;}
 
@@ -477,7 +496,7 @@ Our system reverse-engineers success, then writes your letter to match it.</p></
   </li>
   <li>
     <a href="mailto:info@infinitiden.com">
-      <img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753807767/computer-icons-clip-art-transparency-email-vector-graphics-png-favpng-g4PyNXE41sB6E5krtU34391cA-removebg-preview_jkxrvp.png" alt="Email" style="width:32px;height:32px;">
+      <img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753899979/computer-icons-clip-art-transparency-email-vector-graphics-png-favpng-g4PyNXE41sB6E5krtU34391cA-removebg-preview_jkxrvp.png" alt="Email" style="width:32px;height:32px;">
     </a>
   </li>
 </ul>
