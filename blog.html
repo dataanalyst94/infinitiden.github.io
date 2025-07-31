@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>Infinitiden Blog</title>
   <meta name="description" content="Winning letter guides, SOP tips, and real success stories from the Infinitiden team. Your trusted resource for crafting accepted motivation, cover, and visa letters.">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
   <!-- Open Graph -->
   <meta property="og:title" content="Infinitiden Blog">
   <meta property="og:description" content="Winning letter guides, SOP tips, and real success stories from the Infinitiden team.">
@@ -31,6 +34,90 @@
     }
     a { color: var(--link); text-decoration: none; transition: color var(--transition);}
     a:hover { color: var(--white);}
+    .brand-script {
+  font-family: 'Great Vibes', cursive !important;
+  font-size: 2rem;
+  font-weight: normal;
+  color: #ffd700;
+  text-shadow: 0 2px 10px rgba(255,215,0,0.12);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: 0.03em;
+  background: none;
+  padding: 0.2rem 1.1rem 0.2rem 0;
+}
+
+    .icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.1rem;
+  margin-bottom: 1.1rem;
+  list-style: none;
+  padding: 0;
+}
+.icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(22, 21, 32, 0.82);
+  box-shadow: 0 0 0 1.5px #ffd70022;
+  margin: 0 5px;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+.icons a:hover {
+  background: #ffd700;
+  box-shadow: 0 4px 22px #ffd70077;
+  transform: translateY(-3px) scale(1.08);
+}
+.icons a:hover img {
+  filter: brightness(0.2) invert(1);
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  list-style: none;
+  margin-bottom: 0.7rem;
+  font-size: 0.95rem;
+  padding: 0;
+}
+.footer-links li {
+  color: rgba(255,255,255,0.6);
+}
+.footer-links a {
+  color: #ffd700;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.copyright {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.76rem;
+  list-style: none;
+  padding: 0;
+}
+.copyright a {
+  color: #ffd700;
+  text-decoration: none;
+}
+#footer {
+  background: #0f0f23;
+  padding: 1.7rem 0;
+  text-align: center;
+  border-top: 1px solid rgba(255,215,0,0.12);
+  margin-top: 2rem;
+}
+
     /* Navigation */
     .navbar {
       display: flex;
@@ -213,14 +300,17 @@
 </head>
 <body>
   <!-- NAVIGATION -->
-  <div class="navbar">
-    <div class="logo">Infinitiden</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="index.html#one">How It Works</a>
-      <a href="blog.html" class="active">Blog</a>
-    </nav>
-  </div>
+<div class="navbar">
+  <a href="index.html" class="brand-script">
+    <img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753895920/Logo_vsfwna.png" alt="Infinitiden Logo" style="height:32px;vertical-align:middle;margin-right:8px;">
+    Infinitiden
+  </a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#one">How It Works</a>
+    <a href="blog.html" class="active">Blog</a>
+  </nav>
+</div>
   <!-- HERO SECTION -->
   <section class="hero">
     <h1>Winning Letter Guides & Real Success Stories</h1>
@@ -281,23 +371,40 @@
     </div>
   </main>
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-social">
-      <a href="https://tiktok.com/@infiniti.den" target="_blank"><img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753647105/R_gdzn0q.png" alt="TikTok"></a>
-      <a href="https://www.instagram.com/infinitiden.eu/" target="_blank"><img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753647044/new-instagram-logo-png-1_dm3cbd.png" alt="Instagram"></a>
-      <a href="https://www.linkedin.com/company/infinitiden" target="_blank"><img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753647152/linked_jw0ezu.png" alt="LinkedIn"></a>
-      <a href="mailto:info@infinitiden.com"><img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753899979/computer-icons-clip-art-transparency-email-vector-graphics-png-favpng-g4PyNXE41sB6E5krtU34391cA-removebg-preview_jkxrvp.svg" alt="Email"></a>
-    </div>
-    <ul class="footer-links">
-      <li><a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a></li>
-      <li>|</li>
-      <li><a href="/terms.html" target="_blank" rel="noopener">Terms of Service</a></li>
-      <li>|</li>
-      <li><a href="/refund.html" target="_blank" rel="noopener">Refund Policy</a></li>
-    </ul>
-    <div class="footer-copyright">
-      &copy; 2025 Infinitiden. All rights reserved.
-    </div>
-  </footer>
+  <footer id="footer">
+  <ul class="icons">
+    <li>
+      <a href="https://tiktok.com/@infiniti.den" target="_blank">
+        <img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753647105/R_gdzn0q.png" alt="TikTok" style="width:32px;height:32px;">
+      </a>
+    </li>
+    <li>
+      <a href="https://www.instagram.com/infinitiden.eu/" target="_blank">
+        <img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753647044/new-instagram-logo-png-1_dm3cbd.png" alt="Instagram" style="width:32px;height:32px;">
+      </a>
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/company/infinitiden" target="_blank">
+        <img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753647152/linked_jw0ezu.png" alt="LinkedIn" style="width:32px;height:32px;">
+      </a>
+    </li>
+    <li>
+      <a href="mailto:info@infinitiden.com">
+        <img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753899979/computer-icons-clip-art-transparency-email-vector-graphics-png-favpng-g4PyNXE41sB6E5krtU34391cA-removebg-preview_jkxrvp.svg" alt="Email" style="width:32px;height:32px;filter:invert(1);">
+      </a>
+    </li>
+  </ul>
+  <ul class="footer-links">
+    <li><a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a></li>
+    <li>|</li>
+    <li><a href="/terms.html" target="_blank" rel="noopener">Terms of Service</a></li>
+    <li>|</li>
+    <li><a href="/refund.html" target="_blank" rel="noopener">Refund Policy</a></li>
+  </ul>
+  <ul class="copyright">
+    <li>&copy; Infinitiden - A product of Elira</li>
+  </ul>
+</footer>
+
 </body>
 </html>
