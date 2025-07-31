@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Infinitiden Blog</title>
+  <meta name="description" content="Winning letter guides, SOP tips, and real success stories from the Infinitiden team. Your trusted resource for crafting accepted motivation, cover, and visa letters.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Infinitiden Blog">
+  <meta property="og:description" content="Winning letter guides, SOP tips, and real success stories from the Infinitiden team.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://yourdomain.com/assets/images/logo.png"><!-- update to your logo URL -->
+  <meta property="og:url" content="https://yourdomain.com/blog.html"><!-- update to your domain -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts: Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #ffd700;
+      --dark: #1a1d3a;
+      --white: #fff;
+      --gray: #f8f8fa;
+      --link: #ffd700;
+      --transition: 0.18s;
+    }
+    html, body {
+      margin: 0; padding: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--dark);
+      color: var(--white);
+      min-height: 100vh;
+    }
+    a { color: var(--link); text-decoration: none; transition: color var(--transition);}
+    a:hover { color: var(--white);}
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(26,29,58,0.98);
+      padding: 1rem 2rem;
+      box-shadow: 0 1px 8px #0001;
+    }
+    .navbar .logo {
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 1.4rem;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    .navbar nav a {
+      margin: 0 1rem;
+      font-weight: 500;
+      color: var(--white);
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      transition: border-bottom var(--transition), color var(--transition);
+    }
+    .navbar nav a.active, .navbar nav a:focus {
+      color: var(--gold);
+      border-bottom: 2px solid var(--gold);
+    }
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 1rem 2rem 1rem;
+      background: linear-gradient(135deg, #1a1d3a 60%, #ffd70011 100%);
+    }
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: var(--gold);
+      letter-spacing: -0.01em;
+    }
+    .hero p {
+      color: #eee;
+      font-size: 1.13rem;
+      margin: 0 auto;
+      max-width: 430px;
+      font-weight: 400;
+    }
+    /* Blog grid */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.2rem;
+      max-width: 1000px;
+      margin: 2rem auto 3rem auto;
+      padding: 0 1.1rem;
+    }
+    .blog-card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(255,215,0,0.05);
+      border: 1px solid rgba(255,215,0,0.12);
+      display: flex;
+      flex-direction: column;
+      min-height: 355px;
+      transition: box-shadow 0.22s, transform 0.18s;
+      overflow: hidden;
+    }
+    .blog-card:hover {
+      box-shadow: 0 6px 24px #ffd70033;
+      transform: translateY(-3px) scale(1.017);
+    }
+    .blog-thumb {
+      width: 100%;
+      height: 170px;
+      background: #232648;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-top-left-radius: 14px;
+      border-top-right-radius: 14px;
+    }
+    .blog-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      max-width: 100%;
+      max-height: 100%;
+      filter: brightness(0.97);
+    }
+    .blog-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 1.3rem 1.2rem 1.1rem 1.2rem;
+    }
+    .blog-title {
+      font-size: 1.14rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem 0;
+      color: var(--gold);
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      display: block;
+    }
+    .blog-excerpt {
+      color: #fafad2;
+      font-size: 1.01rem;
+      line-height: 1.6;
+      margin-bottom: 0.88rem;
+      font-weight: 400;
+      flex: 1;
+    }
+    .blog-meta {
+      color: #bbb;
+      font-size: 0.93rem;
+      margin-bottom: 0.2rem;
+      font-weight: 400;
+    }
+    .blog-readmore {
+      display: inline-block;
+      margin-top: 0.7rem;
+      color: var(--dark);
+      background: linear-gradient(90deg, #ffd700, #ffe16c);
+      padding: 0.45rem 1.15rem;
+      border-radius: 18px;
+      font-weight: 600;
+      font-size: 0.98rem;
+      box-shadow: 0 2px 12px #ffd7001a;
+      text-decoration: none;
+      transition: background 0.19s, color 0.19s;
+    }
+    .blog-readmore:hover {
+      background: var(--gold);
+      color: var(--white);
+    }
+    /* Footer */
+    .footer {
+      background: #16192a;
+      padding: 2rem 1rem 1.2rem 1rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .footer .footer-links {
+      margin: 0 auto 0.9rem auto;
+      display: flex;
+      justify-content: center;
+      gap: 0.85rem;
+      font-size: 0.98rem;
+    }
+    .footer .footer-links a {
+      color: var(--gold);
+      text-decoration: underline;
+    }
+    .footer .footer-links a:hover { color: #fff; }
+    .footer-social {
+      margin: 1.1rem 0 0.6rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.1rem;
+    }
+    .footer-social a img {
+      width: 30px; height: 30px; border-radius: 50%; background: #232648;
+      padding: 4px; transition: background 0.2s;
+    }
+    .footer-social a:hover img { background: var(--gold);}
+    .footer-copyright {
+      font-size: 0.93rem;
+      color: #ecececaa;
+      margin-top: 0.9rem;
+      letter-spacing: 0.01em;
+    }
+    @media (max-width: 540px) {
+      .navbar { flex-direction: column; gap: 0.6rem; padding: 1rem 0.4rem;}
+      .blog-grid { grid-template-columns: 1fr;}
+      .footer .footer-links { flex-direction: column; gap: 0.5rem;}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <div class="navbar">
+    <div class="logo">Infinitiden</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#one">How It Works</a>
+      <a href="blog.html" class="active">Blog</a>
+    </nav>
+  </div>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Winning Letter Guides & Real Success Stories</h1>
+    <p>Your trusted resource for crafting accepted motivation, cover, and visa letters.</p>
+  </section>
+  <!-- BLOG GRID -->
+  <main>
+    <div class="blog-grid">
+      <!-- Blog Card 1 -->
+      <article class="blog-card">
+        <a href="sop-for-canada.html" class="blog-thumb">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&h=400&fit=crop&crop=center" alt="Canada SOP Success">
+        </a>
+        <div class="blog-content">
+          <a href="sop-for-canada.html" class="blog-title">How I Got My Canadian Visa with This SOP</a>
+          <div class="blog-excerpt">A real example of an SOP letter that got approved for a Canadian study permit, plus the strategy behind it.</div>
+          <div class="blog-meta">by Infinitiden Team · 31 July 2025</div>
+          <a href="sop-for-canada.html" class="blog-readmore">Read More</a>
+        </div>
+      </article>
+      <!-- Blog Card 2 -->
+      <article class="blog-card">
+        <a href="motivation-letter-mistakes.html" class="blog-thumb">
+          <img src="https://images.unsplash.com/photo-1503676382389-4809596d5290?w=600&h=400&fit=crop&crop=center" alt="Motivation Letter Mistakes">
+        </a>
+        <div class="blog-content">
+          <a href="motivation-letter-mistakes.html" class="blog-title">5 Motivation Letter Mistakes That Kill Applications</a>
+          <div class="blog-excerpt">The most common errors applicants make in their motivation letters and how to avoid them for a better chance of acceptance.</div>
+          <div class="blog-meta">by Infinitiden Team · 28 July 2025</div>
+          <a href="motivation-letter-mistakes.html" class="blog-readmore">Read More</a>
+        </div>
+      </article>
+      <!-- Blog Card 3 -->
+      <article class="blog-card">
+        <a href="scholarship-letter-format.html" class="blog-thumb">
+          <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?w=600&h=400&fit=crop&crop=center" alt="Scholarship Letter Example">
+        </a>
+        <div class="blog-content">
+          <a href="scholarship-letter-format.html" class="blog-title">Scholarship Letter Format: Real Example from Erasmus Winner</a>
+          <div class="blog-excerpt">See the actual structure, language, and tips from an Erasmus scholar who won a competitive European scholarship.</div>
+          <div class="blog-meta">by Infinitiden Team · 25 July 2025</div>
+          <a href="scholarship-letter-format.html" class="blog-readmore">Read More</a>
+        </div>
+      </article>
+      <!-- Blog Card 4 -->
+      <article class="blog-card">
+        <a href="cover-vs-motivation-letter.html" class="blog-thumb">
+          <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?w=600&h=400&fit=crop&crop=center" alt="Cover Letter vs Motivation Letter">
+        </a>
+        <div class="blog-content">
+          <a href="cover-vs-motivation-letter.html" class="blog-title">Job Cover Letter vs Motivation Letter: What’s the Difference?</a>
+          <div class="blog-excerpt">Understand the key differences and when to use each type of letter for job, study, or visa applications.</div>
+          <div class="blog-meta">by Infinitiden Team · 20 July 2025</div>
+          <a href="cover-vs-motivation-letter.html" class="blog-readmore">Read More</a>
+        </div>
+      </article>
+      <!-- Duplicate the above blog-card structure for new posts -->
+    </div>
+  </main>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-social">
+      <a href="https://tiktok.com/@infiniti.den" target="_blank"><img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753647105/R_gdzn0q.png" alt="TikTok"></a>
+      <a href="https://www.instagram.com/infinitiden.eu/" target="_blank"><img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753647044/new-instagram-logo-png-1_dm3cbd.png" alt="Instagram"></a>
+      <a href="https://www.linkedin.com/company/infinitiden" target="_blank"><img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753647152/linked_jw0ezu.png" alt="LinkedIn"></a>
+      <a href="mailto:info@infinitiden.com"><img src="https://res.cloudinary.com/df4of6htg/image/upload/v1753899979/computer-icons-clip-art-transparency-email-vector-graphics-png-favpng-g4PyNXE41sB6E5krtU34391cA-removebg-preview_jkxrvp.svg" alt="Email"></a>
+    </div>
+    <ul class="footer-links">
+      <li><a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a></li>
+      <li>|</li>
+      <li><a href="/terms.html" target="_blank" rel="noopener">Terms of Service</a></li>
+      <li>|</li>
+      <li><a href="/refund.html" target="_blank" rel="noopener">Refund Policy</a></li>
+    </ul>
+    <div class="footer-copyright">
+      &copy; 2025 Infinitiden. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
