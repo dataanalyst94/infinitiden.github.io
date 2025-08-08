@@ -344,6 +344,21 @@
     @media (max-width: 1024px) {
       .steps-flex::before { display: none; }
     }
+    .how-it-works-step {
+  max-width: 300px; /* adjust to match design */
+  word-wrap: break-word;
+  white-space: normal;
+  height: auto; /* allow it to expand for more text */
+}
+
+.how-it-works-step p {
+  line-height: 1.5; /* improves readability */
+}
+@media screen and (min-width: 1024px) {
+  .how-it-works-step {
+    max-width: 280px; /* keeps boxes aligned */
+  }
+}
 
     /* Features/Testimonials/CTA/Footer: compacted */
     #two { padding: 3.2rem 0; background: linear-gradient(135deg, #16213e 0%, #0f0f23 100%);}
