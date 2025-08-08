@@ -1,1 +1,41 @@
+# Site settings
 title: Infinitiden
+description: "Expert motivation letters, cover letters, and SOP writing guidance"
+baseurl: ""
+url: "https://infinitiden.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Posts settings
+permalink: /blog/:year/:month/:day/:title/
+
+# Collections - Enable posts processing
+collections:
+  posts:
+    output: true
+
+# Exclude unnecessary files
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Timezone
+timezone: UTC
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Infinitiden"
