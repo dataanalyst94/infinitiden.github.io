@@ -1,27 +1,19 @@
-<div class="home">
-        <h1>Latest Posts</h1>
+---
+layout: default
+---
 
-        <ul class="post-list">
-            {% for post in site.posts %}
-                <li class="post-item">
-                    <h2 class="post-title">
-                        <a href="{{ post.url | relative_url }}">
-                            {{ post.title | escape }}
-                        </a>
-                    </h2>
-                    <div class="post-meta">
-                        {{ post.date | date: "%B %d, %Y" }}
-                    </div>
-                    <div class="post-excerpt">
-                        {{ post.excerpt | strip_html | truncatewords: 30 }}
-                    </div>
-                </li>
-            {% endfor %}
-        </ul>
+<article class="post" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem;">
+  <header>
+    <h1 style="margin-bottom:.25rem;">{{ page.title }}</h1>
+    {% if page.date %}
+      <time datetime="{{ page.date | date_to_xmlschema }}"
+            style="color:#888; font-size:.95rem;">
+        {{ page.date | date: "%B %-d, %Y" }}
+      </time>
+    {% endif %}
+  </header>
 
-        {% if site.posts.size == 0 %}
-            <p>No posts found. Posts should be in the _posts folder.</p>
-        {% endif %}
-    </div>
-</body>
-</html>
+  <div class="post-content" style="margin-top:1.25rem;">
+    {{ content }}
+  </div>
+</article>
