@@ -52,19 +52,14 @@ title: Infinitiden Blog
     <div id="blog-posts">
       <h2 style="margin-bottom:1.2rem;">Latest Blog Articles</h2>
       <ul style="list-style:disc inside; color:#ffd700;">
-        {%- comment -%}
-          List all pages that live directly in the /blog/ folder (exclude this index).
-        {%- endcomment -%}
-        {%- assign blog_pages = site.pages | where_exp: "p", "p.dir == '/blog/'" -%}
-        {%- assign blog_pages = blog_pages | where_exp: "p", "p.name != 'index.html'" -%}
-        {%- assign blog_pages = blog_pages | sort: "date" | reverse -%}
-        {%- for p in blog_pages -%}
-          <li>
-            <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
-            {%- if p.date %} <small>— {{ p.date | date: "%b %d, %Y" }}</small>{% endif -%}
-          </li>
-        {%- endfor -%}
-      </ul>
+  {%- assign blog_posts = site.posts | where_exp: "post", "post.path contains 'blog/'" -%}
+  {%- for post in blog_posts -%}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <small>— {{ post.date | date: "%b %d, %Y" }}</small>
+    </li>
+  {%- endfor -%}
+</ul>
     </div>
   </div>
 </main>
