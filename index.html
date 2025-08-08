@@ -300,6 +300,57 @@
     .step-desc { font-size: 0.87rem; color: rgba(255,255,255,0.84);}
     .step-card:last-child { margin-bottom: 0; }
 
+    .steps-flex{
+  display:flex;
+  gap:1rem;
+  justify-content:center;
+  align-items:stretch;   /* <— stretch all cards to the tallest */
+  position:relative;
+  z-index:2;
+  flex-wrap:wrap;
+}
+
+.step-card{
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,215,0,0.16);
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(255,215,0,0.04);
+  flex: 1 1 220px;
+  max-width: 260px;      /* a bit wider so lines wrap nicely */
+  min-width: 180px;
+  padding: 1.3rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;/* <— so content stacks nicely */
+  align-items: center;
+  position: relative;
+  transition: all .3s;
+  margin-bottom: 1rem;
+  z-index: 2;
+  height: auto;          /* <— remove fixed height */
+}
+.step-desc{
+  font-size: .87rem;
+  color: rgba(255,255,255,.84);
+  overflow-wrap: anywhere; /* wrap long words */
+  word-break: break-word;
+  hyphens: auto;
+}
+.arrow{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin: 0 .3rem;
+  font-size: 2.2rem;
+  color:#ffd700;
+  animation: wiggle 1.4s infinite;
+  line-height:1;
+  height:auto;            /* <— was 340px */
+  min-width:38px;
+  user-select:none;
+  align-self:center;      /* center between variable-height cards */
+}
+
     /* ARROW STYLE */
     .arrow {
       display: flex;
