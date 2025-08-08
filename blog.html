@@ -360,10 +360,7 @@
     <li>&copy; Infinitiden - A product of Elira</li>
   </ul>
 </footer>
-<script>
 async function fetchBlogPosts() {
-  // This grabs the list of files from your GitHub Pages /blog directory
-  // Use GitHub API to fetch file list (public repos only)
   const apiURL = "https://api.github.com/repos/dataanalyst94/infinitiden.github.io/contents/blog";
   const resp = await fetch(apiURL);
   const data = await resp.json();
@@ -379,10 +376,12 @@ async function fetchBlogPosts() {
         .replace(/-/g, ' ')
         .replace('.md', '')
         .replace(/\b\w/g, l => l.toUpperCase());
-      // Link to the raw .md file (will show as plain text in browser)
-      const url = `/blog/${file.name}`;
+      
+      // CREATE JEKYLL-FRIENDLY URL (remove .md extension)
+      const url = `/blog/${file.name.replace('.md', '')}/`;
+      
       const li = document.createElement('li');
-      li.innerHTML = `<a href="${url}" target="_blank">${title}</a>`;
+      li.innerHTML = `<a href="${url}">${title}</a>`;
       ul.appendChild(li);
     });
 }
