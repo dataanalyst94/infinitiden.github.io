@@ -14,7 +14,6 @@ title: Infinitiden Blog
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    /* (same CSS you already have; trimmed here for brevity) */
     :root { --gold:#ffd700; --dark:#1a1d3a; --white:#fff; --link:#ffd700; --transition:.18s; }
     html,body{margin:0;padding:0;font-family:'Roboto',Arial,sans-serif;background:var(--dark);color:var(--white);min-height:100vh;}
     a{color:var(--link);text-decoration:none;transition:color var(--transition);} a:hover{color:var(--white);}
@@ -24,8 +23,29 @@ title: Infinitiden Blog
     .navbar nav a.active{color:var(--gold);border-bottom:2px solid var(--gold);}
     .hero{text-align:center;padding:3.5rem 1rem 2rem;background:linear-gradient(135deg,#1a1d3a 60%,#ffd70011 100%);}
     .hero h1{font-size:2.1rem;font-weight:700;margin-bottom:.8rem;color:var(--gold);}
-    .blog-grid{max-width:1000px;margin:2rem auto 3rem;padding:0 1.1rem;}
+    .section{max-width:1100px;margin:2rem auto 3rem;padding:0 1.1rem;}
+
+    /* GRID */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
+    .card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,215,0,0.12);border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.2);transition:transform .18s, box-shadow .18s;}
+    .card:hover{transform:translateY(-4px);box-shadow:0 8px 26px rgba(255,215,0,.12);}
+    .thumb{width:100%;height:160px;background:#232648;display:block;overflow:hidden;}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.97);}
+    .content{padding:1rem 1rem 1.1rem;}
+    .title{display:block;font-size:1.05rem;font-weight:800;color:#ffe16c;letter-spacing:-.01em;margin-bottom:.4rem;}
+    .meta{font-size:.86rem;color:#bfc3d5;margin-bottom:.6rem;}
+    .excerpt{font-size:.95rem;line-height:1.6;color:#e9e9f0;}
+    .readmore{display:inline-block;margin-top:.8rem;background:linear-gradient(90deg,#ffd700,#ffe16c);color:#0f1228;padding:.42rem .9rem;border-radius:16px;font-weight:700;}
+    .readmore:hover{background:#ffd700;color:#fff;}
+
+    /* Pagination */
+    .pager{display:flex;justify-content:center;margin-top:1.6rem;}
+    .loadmore{background:#ffd700;color:#0f1228;border:0;border-radius:22px;padding:.6rem 1.2rem;font-weight:800;cursor:pointer;box-shadow:0 4px 18px rgba(255,215,0,.18);}
+    .loadmore:hover{background:#ffe16c}
+    .loadmore:disabled{opacity:.5;cursor:not-allowed}
+
     #footer{background:#0f0f23;padding:1.7rem 0;text-align:center;border-top:1px solid rgba(255,215,0,.12);margin-top:2rem;}
+    .copyright{color:#c9cbe0aa;font-size:.9rem;margin:.4rem 0 0;}
   </style>
 </head>
 <body>
@@ -47,58 +67,104 @@ title: Infinitiden Blog
   <p>Your trusted resource for crafting accepted motivation, cover, and visa letters.</p>
 </section>
 
-<main>
-  <div class="blog-grid">
-    <div id="blog-posts">
-      <h2 style="margin-bottom:1.2rem;">Latest Blog Articles</h2>
-<ul id="posts-list" style="list-style:disc inside; color:#ffd700;"></ul>
-
-<script>
-(async function () {
-  const list = document.getElementById('posts-list');
-  const api = "https://api.github.com/repos/dataanalyst94/infinitiden.github.io/contents/blog";
-  const resp = await fetch(api);
-  const files = await resp.json();
-
-  // only .md files, newest first
-  const mdFiles = files
-    .filter(f => f.name.toLowerCase().endsWith('.md'))
-    .sort((a,b) => b.name.localeCompare(a.name));
-
-  for (const f of mdFiles) {
-    // fetch raw file to read YAML front matter
-    const raw = await fetch(f.download_url).then(r => r.text());
-
-    // extract YAML block between --- ... ---
-    const m = raw.match(/^---\s*([\s\S]*?)\s*---/);
-    if (!m) continue;
-    const yaml = m[1];
-
-    // grab title and permalink from YAML (very tolerant parsing)
-    const titleM = yaml.match(/^\s*title:\s*["']?(.+?)["']?\s*$/mi);
-    const linkM  = yaml.match(/^\s*permalink:\s*(.+?)\s*$/mi);
-
-    const title = titleM ? titleM[1].trim() : f.name.replace(/^\d{4}-\d{2}-\d{2}-/,'').replace(/\.md$/,'').replace(/-/g,' ');
-    let url = linkM ? linkM[1].trim() : `/blog/${f.name.replace(/\.md$/,'')}/`;
-
-    // ensure trailing slash for pretty URLs
-    if (!url.endsWith('/')) url += '/';
-
-    const li = document.createElement('li');
-    li.innerHTML = `<a href="${url}">${title}</a>`;
-    list.appendChild(li);
-  }
-})();
-</script>
-
-    </div>
-  </div>
+<main class="section">
+  <h2 style="margin:0 0 1rem;">Latest Blog Articles</h2>
+  <div id="posts-grid" class="grid"></div>
+  <div class="pager"><button id="loadmore" class="loadmore" style="display:none;">Load more</button></div>
 </main>
 
 <footer id="footer">
-  <!-- your footer, unchanged -->
-  <ul class="copyright"><li>&copy; Infinitiden - A product of Elira</li></ul>
+  <div class="copyright">© Infinitiden - A product of Elira</div>
 </footer>
+
+<script>
+(async function () {
+  const grid = document.getElementById('posts-grid');
+  const btn  = document.getElementById('loadmore');
+
+  const API       = "https://api.github.com/repos/dataanalyst94/infinitiden.github.io/contents/blog";
+  const IMAGE_URL = "https://res.cloudinary.com/df4of6htg/image/upload/v1754692165/apply-for-studies-abroad_cqcugv.png";
+  const PAGE_SIZE = 9;  // ← change this to 6/12/etc if you want
+
+  const stripMd = (s) => s
+    .replace(/!\[[^\]]*\]\([^)]*\)/g,'')
+    .replace(/\[[^\]]*\]\([^)]*\)/g,'')
+    .replace(/[`*>#_-]/g,'')
+    .replace(/\s+/g,' ')
+    .trim();
+
+  const fList = await fetch(API);
+  if (!fList.ok) { grid.innerHTML = "<p>Couldn't load posts.</p>"; return; }
+  const files = await fList.json();
+
+  const mdFiles = files
+    .filter(f => f.name.toLowerCase().endsWith('.md') && !f.name.startsWith('YYYY-MM-DD-'))
+    .sort((a,b) => b.name.localeCompare(a.name));
+
+  // Preload & parse all posts (keeps paging snappy)
+  const posts = [];
+  for (const f of mdFiles) {
+    try {
+      const raw = await fetch(f.download_url).then(r => r.text());
+      const fm = raw.match(/^---\s*([\s\S]*?)\s*---/);
+      if (!fm) continue;
+
+      const yaml = fm[1];
+      const body = raw.slice(fm[0].length);
+
+      const titleM = yaml.match(/^\s*title:\s*["']?(.+?)["']?\s*$/mi);
+      const linkM  = yaml.match(/^\s*permalink:\s*(.+?)\s*$/mi);
+      const dateM  = yaml.match(/^\s*date:\s*([0-9:-\s+]+)\s*$/mi);
+
+      const title = (titleM ? titleM[1].trim() : f.name.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/,'').replace(/-/g,' ')) || 'Untitled';
+      let url = linkM ? linkM[1].trim().replace(/^["']|["']$/g,'') : `/blog/${f.name.replace(/\.md$/,'')}/`;
+      if (!url.endsWith('/')) url += '/';
+
+      const para = body.split(/\n\s*\n/).find(p => p.trim().length > 60) || '';
+      let excerpt = stripMd(para).slice(0, 180);
+      if (excerpt.length === 180) excerpt += '…';
+
+      let dateStr = '';
+      if (dateM) {
+        const d = new Date(dateM[1]);
+        if (!isNaN(d)) dateStr = d.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+      }
+
+      posts.push({ title, url, dateStr, excerpt });
+    } catch (e) { /* skip bad files */ }
+  }
+
+  let cursor = 0;
+  const renderNext = () => {
+    const slice = posts.slice(cursor, cursor + PAGE_SIZE);
+    slice.forEach(p => {
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.innerHTML = `
+        <a class="thumb" href="${p.url}">
+          <img src="${IMAGE_URL}" alt="${p.title}">
+        </a>
+        <div class="content">
+          <a class="title" href="${p.url}">${p.title}</a>
+          <div class="meta">${p.dateStr || ''}</div>
+          <p class="excerpt">${p.excerpt}</p>
+          <a class="readmore" href="${p.url}">Read more →</a>
+        </div>`;
+      grid.appendChild(card);
+    });
+    cursor += slice.length;
+    btn.style.display = (cursor < posts.length) ? 'inline-block' : 'none';
+  };
+
+  if (posts.length === 0) {
+    grid.innerHTML = "<p>No posts yet. Check back soon!</p>";
+  } else {
+    renderNext();
+  }
+
+  btn.addEventListener('click', renderNext);
+})();
+</script>
 
 </body>
 </html>
