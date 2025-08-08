@@ -51,15 +51,46 @@ title: Infinitiden Blog
   <div class="blog-grid">
     <div id="blog-posts">
       <h2 style="margin-bottom:1.2rem;">Latest Blog Articles</h2>
-      <ul style="list-style:disc inside; color:#ffd700;">
-  {%- assign blog_posts = site.posts | where_exp: "post", "post.path contains 'blog/'" -%}
-  {%- for post in blog_posts -%}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <small>— {{ post.date | date: "%b %d, %Y" }}</small>
-    </li>
-  {%- endfor -%}
-</ul>
+<ul id="posts-list" style="list-style:disc inside; color:#ffd700;"></ul>
+
+<script>
+(async function () {
+  const list = document.getElementById('posts-list');
+  const api = "https://api.github.com/repos/dataanalyst94/infinitiden.github.io/contents/blog";
+  const resp = await fetch(api);
+  const files = await resp.json();
+
+  // only .md files, newest first
+  const mdFiles = files
+    .filter(f => f.name.toLowerCase().endsWith('.md'))
+    .sort((a,b) => b.name.localeCompare(a.name));
+
+  for (const f of mdFiles) {
+    // fetch raw file to read YAML front matter
+    const raw = await fetch(f.download_url).then(r => r.text());
+
+    // extract YAML block between --- ... ---
+    const m = raw.match(/^---\s*([\s\S]*?)\s*---/);
+    if (!m) continue;
+    const yaml = m[1];
+
+    // grab title and permalink from YAML (very tolerant parsing)
+    const titleM = yaml.match(/^\s*title:\s*["']?(.+?)["']?\s*$/mi);
+    const linkM  = yaml.match(/^\s*permalink:\s*(.+?)\s*$/mi);
+
+    const title = titleM ? titleM[1].trim() : f.name.replace(/^\d{4}-\d{2}-\d{2}-/,'').replace(/\.md$/,'').replace(/-/g,' ');
+    let url = linkM ? linkM[1].trim() : `/blog/${f.name.replace(/\.md$/,'')}/`;
+
+    // ensure trailing slash for pretty URLs
+    if (!url.endsWith('/')) url += '/';
+
+    const li = document.createElement('li');
+    li.innerHTML = `<a href="${url}">${title}</a>`;
+    list.appendChild(li);
+  }
+})();
+</script>
+
     </div>
   </div>
 </main>
