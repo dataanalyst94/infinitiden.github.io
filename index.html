@@ -21,8 +21,9 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'G-0NMPZDGZHR');
+  gtag('config', 'G-0NMPZDGZHR', {
+    linker: { domains: ['infinitiden.com', 'tally.so'] }
+  });
 </script>
   <!-- Font Awesome for icons -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
