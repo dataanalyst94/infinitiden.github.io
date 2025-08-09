@@ -850,7 +850,7 @@
     window.addEventListener('resize',()=>{});
     window.addEventListener('load',()=>{ document.body.classList.add('loaded'); });
   </script>
-  <script>
+ <script>
 document.addEventListener("DOMContentLoaded", function () {
   var targets = document.querySelectorAll('a[href="https://tally.so/r/mVO5VN"]');
   targets.forEach(function (a) {
@@ -860,12 +860,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     a.addEventListener('click', function (e) {
       var href = a.href;
-
-      // Only delay if navigating in same tab
       var sameTab = !a.target || a.target === '_self';
       if (sameTab) e.preventDefault();
 
-      gtag('event', 'generate_letter_click', {
+      gtag('event', 'begin_checkout', {
         placement: placement,
         link_text: (a.textContent || '').trim(),
         event_callback: function () {
@@ -873,12 +871,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // Fallback in case callback doesn’t fire
       if (sameTab) setTimeout(function(){ window.location = href; }, 500);
     });
   });
 });
 </script>
+
 
 </body>
 </html>
